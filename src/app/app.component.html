@@ -1,16 +1,8 @@
 <div class="row" container mt-4>
-
   <div class="col-3">
-    <h2>busquedas</h2>
-    <hr>
-    <ul class="list-group">
-      <!-- routerLink direcciona al path declarado en el routing.module.ts sin hacer el fullrefresh de la página -->
-      <!-- routerLinkActive inserta la clase que le pasemos como valor  -->
-      <!-- routerLinkActiveOptions para que solo agregue la clase cuando estoy exactamente en el path -->
-      <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item">Buscar país</li>
-      <li routerLink="region" routerLinkActive="active" class="list-group-item">Por Región</li>
-      <li routerLink="capital" routerLinkActive="active" class="list-group-item">Por Capital</li>
-    </ul>
+    <!-- sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End sidebar -->
   </div>
 
   <div class="col">
