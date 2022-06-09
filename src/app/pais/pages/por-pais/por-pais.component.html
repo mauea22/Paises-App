@@ -1,1 +1,46 @@
-<p>por-pais works!</p>
+<h3>Por País</h3>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- cuando se da enter en el form se dispara mediante (ngSubmit) el metodo buscar() -->
+    <form action="" (ngSubmit)="buscar()">
+      <input
+        type="text"
+        name="termino"
+        class="form-control"
+        placeholder="Buscar País...."
+        [(ngModel)]="termino"
+      /><!-- [(ngModel)]="termino" captura lo que se escribe en el imput -->
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="alert alert-danger">No se encontró nada con el termino ABCASD</div>
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bandera</th>
+          <th>Nombre</th>
+          <th>Población</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>bandera</td>
+          <td>nombre</td>
+          <td>1231313213</td>
+          <td>
+            <a href="/pais/cri">Ver más.....</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
