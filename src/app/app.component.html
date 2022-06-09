@@ -1,1 +1,18 @@
-<h1>hola mundo</h1>
+<div class="row" container mt-4>
+
+  <div class="col-3">
+    <h2>busquedas</h2>
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item">Buscar país</li>
+      <li class="list-group-item">Por Región</li>
+      <li class="list-group-item">Por Capital</li>
+    </ul>
+  </div>
+
+  <div class="col">
+    <!-- contenido dinmico basado en el url  -->
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
