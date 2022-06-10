@@ -17,8 +17,10 @@ export class PorPaisComponent {
     this.hayError = false;
     console.log(this.termino);
 
-    this.paisService.buscarPais(this.termino).subscribe((resp) =>{
-      console.log(resp);
+    this.paisService.buscarPais(this.termino).subscribe((paises) =>{
+      console.log(paises);
+      //ahora con la interface creada tengo acceso a todas las propiedades de la respuesta en su formato
+      
     },(err) => {
       this.hayError = true;
       console.log(err);
