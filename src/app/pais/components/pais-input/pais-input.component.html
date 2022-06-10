@@ -1,0 +1,10 @@
+<!-- cuando se da enter en el form se dispara mediante (ngSubmit) el metodo buscar() -->
+<form action="" (ngSubmit)="buscar()">
+  <input
+    type="text"
+    name="termino"
+    class="form-control"
+    placeholder="Buscar País...."
+    [(ngModel)]="termino"
+  /><!-- [(ngModel)]="termino" captura lo que se escribe en el imput -->
+</form>

@@ -1,0 +1,26 @@
+    <!-- ngIf="paises.length > 0" que se muestre la tabla  si es 0 quiere decir que aun no hay busqueda o la busqueda dio error por ende el array está vacío-->
+    <table *ngIf="paises.length > 0" class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bandera</th>
+          <th>Nombre</th>
+          <th>Población</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody >
+        <!-- recorro el array de paises donde está la busqueda y obtengo los distintos datos a completar de la tabla -->
+        <tr *ngFor="let pais of paises; let i = index">
+          <td>{{ i + 1}}</td>
+          <td>
+            <img class="small-flag" [src]="pais.flags.svg">
+          </td>
+          <td>{{pais.name.official}}</td>
+          <td>{{pais.population | number}}</td>
+          <td>
+            <a [routerLink]="['/pais', pais.cca2]">Ver más.....</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
