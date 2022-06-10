@@ -17,10 +17,14 @@
 </div>
 
 <hr>
-<div *ngIf="hayError" class="alert alert-danger">No se encontró nada con el termino ABCASD</div>
+<!-- ngIf si hay error en la petición se muestra el contenido caso contrario NO  -->
+<div *ngIf="hayError" class="alert alert-danger">No se encontró nada con el término {{termino}}.
+</div>
+
 <div class="row">
   <div class="col">
-    <table class="table table-hover">
+    <!-- ngIf="!hayError si NO hay error que se muestre la tabla  -->
+    <table *ngIf="!hayError" class="table table-hover">
       <thead>
         <tr>
           <th>#</th>

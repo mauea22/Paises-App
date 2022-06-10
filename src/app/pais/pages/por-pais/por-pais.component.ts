@@ -21,6 +21,7 @@ export class PorPaisComponent {
       console.log(resp);
     },(err) => {
       this.hayError = true;
+      console.log(err);
     });
 
     //reseteo el input

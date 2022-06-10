@@ -13,7 +13,7 @@ export class PaisService {
 
   buscarPais( termino:string): Observable<any>{
     //armo la url con apiUrl + /name / el pais que el usuario ingresa (termino) y la guardo en la variable url
-    const url =`${this.apiUrl}/name/${termino}`
+    const url =`${this.apiUrl}/name/${termino}`;
     //retorna el observable
     return this.http.get(url);
   }
