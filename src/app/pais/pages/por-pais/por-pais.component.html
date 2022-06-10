@@ -23,8 +23,8 @@
 
 <div class="row">
   <div class="col">
-    <!-- ngIf="!hayError si NO hay error que se muestre la tabla  -->
-    <table *ngIf="!hayError" class="table table-hover">
+    <!-- ngIf="paises.length > 0" que se muestre la tabla  si es 0 quiere decir que aun no hay busqueda o la busqueda dio error por ende el array está vacío-->
+    <table *ngIf="paises.length > 0" class="table table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -34,14 +34,17 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>bandera</td>
-          <td>nombre</td>
-          <td>1231313213</td>
+      <tbody >
+        <!-- desde la respuesta obtengo los distintos datos a completar de la tabla -->
+        <tr *ngFor="let pais of paises; let i = index">
+          <td>{{ i + 1}}</td>
           <td>
-            <a href="/pais/cri">Ver más.....</a>
+            <img class="small-flag" [src]="pais.flags.svg">
+          </td>
+          <td>{{pais.name.official}}</td>
+          <td>{{pais.population | number}}</td>
+          <td>
+            <a [routerLink]="['/pais', pais.cca2]">Ver más.....</a>
           </td>
         </tr>
       </tbody>

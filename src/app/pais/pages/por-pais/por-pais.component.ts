@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class PorPaisComponent {
 
   termino: string = '';
   hayError:boolean= false;
+  paises: Country[] = [];
 
   constructor( private paisService: PaisService) { }
 
@@ -17,13 +19,16 @@ export class PorPaisComponent {
     this.hayError = false;
     console.log(this.termino);
 
-    this.paisService.buscarPais(this.termino).subscribe((paises) =>{
-      console.log(paises);
-      //ahora con la interface creada tengo acceso a todas las propiedades de la respuesta en su formato
-      
+    this.paisService.buscarPais(this.termino).subscribe((resp) =>{
+      console.log(resp);
+
+      this.paises = resp;
+      //ahora en paises tengo los datos en el formato Country[] definido en pais.interface
+      //puedo consumir estos datos desde el HTML y llenar la tabla con sus respectivos campos
     },(err) => {
       this.hayError = true;
       console.log(err);
+      this.paises = [];
     });
 
     //reseteo el input
