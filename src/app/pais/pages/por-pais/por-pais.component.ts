@@ -19,8 +19,6 @@ export class PorPaisComponent {
     this.hayError = false;
 
     this.paisService.buscarPais(termino).subscribe((resp) =>{
-      console.log(resp);
-
       this.paises = resp;
       //ahora en paises tengo los datos en el formato Country[] definido en pais.interface
       //puedo consumir estos datos desde el HTML y llenar la tabla con sus respectivos campos
@@ -32,6 +30,11 @@ export class PorPaisComponent {
 
     //reseteo el input
     this.termino = '';
+  }
+
+  sugerencias(){
+    this.hayError = false;
+    //TODO: crear sugerencia
   }
 
 }
