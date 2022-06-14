@@ -6,11 +6,20 @@
     <div class="col">
       <app-pais-input
         (onEnter)="buscar($event)"
-        (onDebounce)="sugerencias()"
+        (onDebounce)="sugerencias($event)"
         placeHolder="Buscar País....">
       </app-pais-input>
     </div>
   </div>
+
+  <!-- sugerencias para el imput -->
+  <ul class="list-group">
+    <li
+    *ngFor="let pais of paisesSugeridos"
+    class="list-group-item list-group-item-action">
+    <a [routerLink]="['/pais', pais.cca2]" >{{pais.name.common}}</a>
+    </li>
+  </ul>
 
   <hr>
   <!-- ngIf si hay error en la petición se muestra el contenido caso contrario NO  -->
