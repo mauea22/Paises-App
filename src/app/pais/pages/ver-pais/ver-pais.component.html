@@ -4,12 +4,48 @@
 </div>
 
 <ng-template #divPais>
-
+<!-- Nombre -->
   <div class="row">
     <div class="col-12">
       <h1>País: <small>{{pais[0].name.common}}</small></h1>
     </div>
   </div>
+
+  <!-- Bandera -->
+  <div class="row">
+
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img [src]="pais[0].flags.png" alt="Imagen de bandera" class="medium-flag">
+    </div>
+
+    <div class="col">
+      <h3>Informacion</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Poblacíon: </strong> {{pais[0].population | number}}
+          </li>
+          <li class="list-group-item">
+            <strong>Superficie: </strong> {{pais[0].area | number}} km
+          </li>
+          <li class="list-group-item">
+            <a href={{pais[0].maps.googleMaps}} target="_blank"> Ver Mapa...</a>
+        </ul>
+    </div>
+  </div>
+
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary m-1">{{pais[0].translations.deu.common}}</span>
+      <span class="badge bg-primary m-2">{{pais[0].translations.fra.common}}</span>
+      <span class="badge bg-primary m-2">{{pais[0].translations.jpn.common}}</span>
+      <span class="badge bg-primary m-2">{{pais[0].translations.ita.common}}</span>
+      <span class="badge bg-primary m-2">{{pais[0].translations.per.common}}</span>
+      <span class="badge bg-primary m-2">{{pais[0].translations.rus.common}}</span>
+    </div>
+  </div>
+
 
 </ng-template>
 
