@@ -1,5 +1,5 @@
     <!-- ngIf="paises.length > 0" que se muestre la tabla si es 0 quiere decir que aun no hay busqueda o la busqueda dio error por ende el array está vacío-->
-    <table *ngIf="paises.length > 0" class="table table-hover">
+    <table *ngIf="paises.length > 0" class="animate__animated animate__fadeIn table table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -9,11 +9,11 @@
           <th></th>
         </tr>
       </thead>
-      <tbody >
+      <tbody>
         <!-- recorro el array de paises donde está la busqueda y obtengo los distintos datos a completar de la tabla -->
         <tr *ngFor="let pais of paises; let i = index">
           <td>{{ i + 1}}</td>
-          <td>
+          <td class="animate__animated animate__pulse animate__repeat-2">
             <img class="small-flag" [src]="pais.flags.svg">
           </td>
           <td>{{pais.capital}}, {{pais.name.common}}</td>
