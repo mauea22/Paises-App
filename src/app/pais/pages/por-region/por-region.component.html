@@ -1,24 +1,23 @@
-<h3>Por Región</h3>
+<h3>Buscar por Región <small>{{regionActiva | titlecase}}</small></h3>
 <hr>
+
+<h5>Seleccione la región</h5>
 
 <div class="row">
   <div class="col">
-    <app-pais-input
-      (onEnter)="buscar($event)"
-      (onDebounce)="sugerencias()"
-      placeHolder="Buscar Región....">
-    </app-pais-input>
+    <!-- [class]="(region === regionActiva) es un operador ternario si la condicion se cumple ? y si no : -->
+    <button
+    *ngFor="let region of regiones"
+    [class]="(region === regionActiva) ?'btn btn-primary' :'btn btn-outline-primary'"
+    (click)="activarRegion( region)">
+      {{region | titlecase}}
+    </button>
   </div>
 </div>
 
-<hr>
-<!-- ngIf si hay error en la petición se muestra el contenido caso contrario NO  -->
-<div *ngIf="hayError" class="alert alert-danger">No se encontró nada con el término {{termino}}.
-</div>
-
 <div class="row">
   <div class="col">
-    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    <app-pais-tabla [paises]="regionesFull"></app-pais-tabla>
   </div>
 </div>
 

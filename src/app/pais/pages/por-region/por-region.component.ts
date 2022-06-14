@@ -8,33 +8,31 @@ import { PaisService } from '../../services/pais.service';
   styleUrls: ['./por-region.component.css']
 })
 export class PorRegionComponent  {
-
-  termino: string = '';
-  hayError:boolean= false;
-  paises: Country[] = [];
+  regiones: string[] = ['americas','africa','europe','asia','oceania',];
+  regionActiva: string = '';
+  regionesFull: Country[]= [];
 
   constructor( private paisService: PaisService) { }
 
+  activarRegion( region:string){
+    //si la lista que se muestra es la misma que estoy seleccionando que no haga nada ya que es la misma que se ve en pantalla
+    if (region === this.regionActiva) {
+      return;
+    }
 
-  buscar( termino:string){
-    this.hayError = false;
+    this.regionActiva = region;
+    
+    this.regionesFull = [];
 
-    this.paisService.buscarRegion(termino).subscribe((resp) =>{
-      this.paises = resp;
-      //ahora en paises tengo los datos en el formato Country[] definido en pais.interface
-      //puedo consumir estos datos desde el HTML y llenar la tabla con sus respectivos campos
-    },(err) => {
-      this.hayError = true;
-      console.log(err);
-      this.paises = [];
-    });
-
-    //reseteo el input
-    this.termino = '';
+    this.paisService.buscarRegion(region).subscribe(resp =>{
+        this.regionesFull = resp
+        console.log(resp)
+      })
+    }
   }
 
-  sugerencias(){
-    this.hayError = false;
-    //TODO: crear sugerencia
-  }
-}
+
+
+
+
+
